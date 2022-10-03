@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async和await结合：发送Ajax请求</title>
+</head>
+<body>
+<script>
+    // 发送Ajax请求,返回的结果是Promise对象
+    // 封装发送Ajax函数
+    // 因为我们主要关注async和await,所以做个简单的封装Ajax函数
+    //      默认get方法,只传递Url地址
+
+    function sendAjax(method = 'GET' , url) {
+        return new Promise((resolve , reject) => {
+            // Ajax四步走
+            // 1. 声明xhr
+            const xhr = new XMLHttpRequest();
+            // 2. 初始化xhr对象
+            xhr.open(method,url);
+            // 3. 发送
+            xhr.send();
+            // 4. 响应事件绑定
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status <300){
+                        // 如果成功
+                        // return new Promise(...),我们需要外层函数返回,不是这个事件绑定函数返回
+                        resolve(xhr.response);  //响应体
+                    }else{
+                        // 失败了
+                        reject(xhr.status);
+                    }
+                }
+            };
+        });
+    }
+
+    // Promise的then方法测试
+    // sendAjax('GET','https://api.apiopen.top/getJoke').then(value =>{
+    //     console.log(value);
+    // } , reason => {});
+
+    // async和await测试
+    async function main() {
+        // 发送Ajax请求
+        try {
+            let result = await sendAjax('GET','https://api.apiopen.top/getJoke');
+            let tianqi = await sendAjax('GET','https://www.tianqiapi.com/api/?version=v1&city=%E5%8C%97%E4%BA%AC&appid=23941491&appsecret=TXoD5e8P');
+            console.log(result);
+            console.log(tianqi);
+        } catch (error) {
+            console.warn(error);
+        }
+    }
+    main();
+</script>
+</body>
+</html>

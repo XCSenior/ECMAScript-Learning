@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6对象方法的扩展</title>
+</head>
+<body>
+<script>
+    // 1.Object.is(a,b)判断两个值是否完全相等,有点像===,但不完全像
+    console.log(Object.is(120, 120));// true 
+    console.log(Object.is(NaN, NaN));// true 
+    console.log(NaN === NaN);// false     
+
+    // 2.Object.assign(o1,o2)  对象合并覆盖重名属性  o2覆盖o1
+    // 适合配置对象的合并
+    const config1 = {
+        host: 'localhost',
+        port: 3306,
+        name: 'root',
+        pass: 'root',
+        test: 'test'
+    };
+    const config2 = {
+        host: 'http://atguigu.com',
+        port: 33060,
+        name: 'atguigu.com',
+        pass: 'iloveyou',
+        test2: 'test2'
+    }
+    console.log(Object.assign(config1, config2));
+
+    // 3.Object.setPrototypeOf :设置原型对象
+    //   Object.getPrototypeOf :获取原型对象
+    const school = {
+        name: '尚硅谷'
+    }
+    const cities = {
+        xiaoqu: ['北京','上海','深圳']
+    }
+    Object.setPrototypeOf(school, cities);
+    console.log(Object.getPrototypeOf(school));
+    console.log(school);
+
+
+
+</script>
+</body>
+</html>

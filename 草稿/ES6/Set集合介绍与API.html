@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set集合介绍与API</title>
+</head>
+<body>
+<script>
+    // 声明一个Set
+    let s = new Set();
+    console.log(s , typeof Object);   //Set(0){}   Object
+
+    let s2 = new Set(['大事儿','小事儿','好事儿','坏事儿','小事儿']);    //传入可迭代数据，一般传入数组
+    console.log(s2);    //Set(4) {'大事儿', '小事儿', '好事儿', '坏事儿'}   自动去重
+
+    // API
+    // 元素个数
+    console.log(s2.size);
+    // 添加新元素
+    s2.add('喜事儿');
+    // 删除元素
+    s2.delete('坏事儿');
+    // 检测
+    s2.has('好事儿');    //返回true
+    // // 清空
+    // s2.clear();     //集合清空
+
+    // 迭代器遍历
+    for (const v of s2) {
+        console.log(v);     //大事儿  小事儿   ……
+    }
+
+
+</script>
+</body>
+</html>

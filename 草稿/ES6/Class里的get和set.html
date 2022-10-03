@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class的get和set</title>
+</head>
+<body>
+<script>
+    /**
+    *        get 和 set
+    *  *get:一读取对象对应属性时候,执行get内的方法,并带有返回值
+    *  *set:属性一修改,自动执行set的对应函数
+    *       ?　get通常封装类的动态属性,例如求总数、平均数
+    *       ?　set可以做更多,例如判断修改新值是否合法再决定赋值等
+    */
+    class Phone{
+        constructor(price){
+            this.price = price;
+        }
+        get price(){
+            console.log('价格属性被读取了!');
+            return 'ILoveYou';
+        }
+        set price(newValue){
+           console.log('价格属性被修改了!'+newValue); 
+        }
+    }
+    let s = new Phone(899); //价格属性被修改了!899
+    console.log(s.price);  //价格属性被读取了!     ILoveYou
+    s.price = 'free';   //价格属性被修改了!free
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器</title>
+</head>
+<body>
+<script>
+    // 生成器其实就是一种特殊的函数
+    // 异步编程：纯回调函数( node中的fs  ajax  mnogodb )，一层套一层回调地狱
+    // function 后面加*
+    // yield 函数代码的分割符，把函数切分成几块
+
+    function * gen(){
+        console.log(111);
+        yield '一只没有耳朵';
+        console.log(222);
+        yield '一只没有尾部';
+        console.log(333);
+        yield '真奇怪';
+        console.log(444);
+    }
+
+    let iterator = gen()
+    console.log(iterator);
+    iterator.next();     //111
+    iterator.next();     //222
+    iterator.next();     //333
+    iterator.next();     //444
+    
+    // 遍历
+    for (const v of gen()) {
+        console.log(v);
+    }
+
+
+</script>
+</body>
+</html>

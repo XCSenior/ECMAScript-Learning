@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest参数</title>
+</head>
+<body>
+<script>
+    // ES6引入rest参数，来获取函数实参，来代替arguments
+    // ES5 获取实参的方式
+    function date1(){
+        console.log(arguments); //arguments类数组对象
+    }
+    date1('西施','阿姣','四惠')  //传参
+
+    // ES6 获取实参的方式
+    function date2(...args) {
+        console.log(args);      //数组，可以使用各种数组api
+    }
+    date2('西施','阿姣','四惠')  //传参
+
+    // 1、rest参数必须放到形参最后,不然报错
+    function fn (a,b,...args) {
+        console.log(a);     //1
+        console.log(b);     //2
+        console.log(args);  //[3, 4, 5, 6]
+    }
+    fn(1,2,3,4,5,6)     
+</script>
+</body>
+</html>

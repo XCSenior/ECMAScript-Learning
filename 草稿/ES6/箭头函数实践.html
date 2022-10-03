@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数实践</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #58a;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+<script>
+    // 需求1 点击div 2秒后变成粉色
+    // 获取元素
+    let ad = document.getElementById('ad');
+    // 绑定事件
+    ad.addEventListener('click',function() {
+        // console.log(this);  //ad
+        // setTimeout(function(){
+        //     console.log(this);  //window  定时器是全局方法
+        //     this.style.background = 'pink'
+        // },2000);
+
+        setTimeout(()=>{
+            console.log(this);  //ad   用箭头函数指向所在作用域下this的值
+            this.style.background = 'pink'
+        },2000);
+    })
+
+
+    // 需求2 从数组中返回偶数元素
+    const arr = [1,6,9,10,100,25];
+
+    // const result = arr.filter(function (item) {
+    //     if(item%2 === 0){
+    //         return true;    //返回
+    //     }else{
+    //         return false;
+    //     }
+    // })
+    const result = arr.filter( item => item%2 === 0)
+    console.log(result);  //[6,10,100]
+
+    // 总结：箭头函数
+    // 适合与this无关的回调函数、定时器、数组的方法回调
+    // 不适合与this有关的回调，dom元素事件回调，对象方法  {  getName: () => { this.name = name; }  }
+
+</script>
+</body>
+</html>

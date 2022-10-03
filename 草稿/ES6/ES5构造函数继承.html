@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5构造函数继承</title>
+</head>
+<body>
+<script>
+    //手机类
+    function Phone(brand,price) {
+        this.brand = brand;
+        this.price = price;
+    }
+    Phone.prototype.call = function () {
+        console.log('我可以打电话！！');
+    }
+
+    // 智能手机类
+    function SmartPhone (brand , price , color , size) {
+        Phone.call(this,brand,price);   //this是SmartPhone的初始化实例对象
+        this.color = color;
+        this.size = size;
+    }
+    // 设置子类构造函数的原型对象，指向父类的实例对象，则子类实例对象继承父类的方法
+    SmartPhone.prototype = new Phone();
+    SmartPhone.prototype.constructor = SmartPhone;  //校正
+
+    // 声明子类的方法
+    SmartPhone.prototype.takePhoto = function () {
+        console.log('我可以拍照！');
+    };
+    SmartPhone.prototype.playGame = function(params) {
+        console.log('我可以玩游戏！');
+    };
+    const chuizi = new SmartPhone('锤子',2499,'黑色','5.5inch');
+    console.log(chuizi);
+
+
+</script>
+</body>
+</html>

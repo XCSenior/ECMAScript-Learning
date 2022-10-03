@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+<body>
+<script>
+    // 声明一个数组
+    const xiyou = ['唐僧','孙悟空','猪八戒','沙僧']
+
+    // for...of..循环，v保存键值，forin循环的v保持键名
+    for(let v of xiyou){
+        console.log(v);     //唐僧  孙悟空  猪八戒  沙僧
+    }
+
+    // 获取iterator函数对象
+    let iterator = xiyou[Symbol.iterator]();
+    console.log(iterator);
+
+    console.log(iterator.next());   //唐僧
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise的基本语法</title>
+</head>
+<body>
+<script>
+    // Promise对象的3个状态：初始化、成功、失败
+    // 实例化promise对象
+    const p = new Promise(function(resolve,reject) {
+        // 封装异步操作
+        setTimeout(function(){
+            // 
+            let data = '数据库中的用户数据';
+            // 得到数据后，改变resolve和reject参数，来改变Promise对象的状态
+            // resolve：调用resolve后，Promise对象的状态变为成功
+            //resolve(data);
+
+            let err = '数据读取失败';
+            reject(err);
+        },1000);
+    });
+
+    // 调用Promise对象的then方法，该方法接受两个函数参数，成功的形参value，失败的形参reason
+    // 调用resolve则执行第一个函数参数里面的代码
+    p.then(function (value) {
+        console.log(value);
+    },function (reason) {
+        console.error(reason);
+    });
+
+</script>
+</body>
+</html>

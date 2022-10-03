@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class的类继承</title>
+</head>
+<body>
+<script>
+    // 父类
+    class Phone{
+        constructor(brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        // 父类的成员属性
+        call(){
+            console.log('我可以打电话!!');
+        }
+    }
+
+    class SmartPhone extends Phone{
+        constructor(brand , price , color , size){
+            super(brand,price);     //相当于Phone.call(this,brand,price)
+            this.color = color;
+            this.size = size;
+        }
+        // 重写父类call()
+        call(){
+        /**
+        *  !　ES6不允许子类方法通过super调用父类同名方法,只能完全推翻重写
+        *  !　　这点跟Java不同
+        *  *　super();　
+        *  ?　报错:Uncaught SyntaxError: 'super' keyword unexpected here
+        */    console.log('我可以视频通话，比打电话更厉害');
+        }
+    }
+    let xiaomi = new SmartPhone('小米',799,'black','4.7inch');
+    console.log(xiaomi);
+    xiaomi.call();      //我可以视频通话，比打电话更厉害
+
+</script>
+</body>
+</html>

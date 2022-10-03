@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数参数</title>
+</head>
+<body>
+<script>
+    // 
+    function * gen(arg){
+        console.log(arg);
+
+        let y1 = yield 111;
+        console.log(`y1:${y1}`);
+
+        let y2 = yield 222;
+        console.log(`y2:${y2}`);
+
+        let y3 = yield 333;
+        console.log(`y3:${y3}`);
+
+    }
+
+    // 执行获取的迭代器对象
+    let iterator = gen('AAA');
+    console.log(iterator.next());
+    console.log(iterator.next('BBB'));
+    console.log(iterator.next('CCC'));
+    console.log(iterator.next('DDD'));
+
+</script>
+</body>
+</html>

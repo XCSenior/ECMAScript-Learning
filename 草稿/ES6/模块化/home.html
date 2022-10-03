@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Babel的转化</title>
+	<script src="dist/bundle.js"></script>
+</head>
+<body>
+<!-- 
+	1、安装工具
+		1.babel-cli(babel的命令行工具)
+		2.babel-preset-env(预设包，转化最新的ES的特性)
+		3.browserify(较简单的打包工具，不用webpack是因为其需要配置)
+	2、转换
+	*	终端输入npx  babel  src/js目录  -d  dist/js新生成目录  
+			npx是局部安装的命令,如果npm全局安装了babel就可以省略npx
+			-d是经过babel转换的文件的生成目录路径命令
+	3、打包
+	*	终端输入npx browserify dist/js/app.js -o dist/bundle.js
+			打包app.js入口文件,-o是生成的路径
+	-->
+</body>
+</html>
