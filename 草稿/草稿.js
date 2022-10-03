@@ -15,3 +15,9 @@ for (const key in obj) {
         console.log(`${key}:${element}`);
     }
 }
+
+function fn (...args) {
+    console.log('typeof args :>> ', typeof args);
+    console.log('args instanceof Array :>> ', args instanceof Array);
+}
+fn();
