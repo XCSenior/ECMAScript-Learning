@@ -16,15 +16,24 @@
         console.log(v);     //唐僧  孙悟空  猪八戒  沙僧
     }
 
-    // 获取iterator函数对象
+    /**
+     * 工作原理：
+     *      *1、创建一个指针对象，指向当前数据结构的起始位置
+     *      *2、第一次调用指针对象next方法，指针自动指向数据结构的第一个成员
+     *      *3、接下来不断调用next方法，指针一直往后移动，直到指向最后一个成员
+     *      *4、每调用next方法，返回一个包含value和done属性的对象
+     */
+
+    // 获取iterator函数指针对象
     let iterator = xiyou[Symbol.iterator]();
     console.log(iterator);
 
-    console.log(iterator.next());   //唐僧
-    console.log(iterator.next());
-    console.log(iterator.next());
-    console.log(iterator.next());
-    console.log(iterator.next());
+    console.log(iterator.next());   // {value: '唐僧', done: false}
+    console.log(iterator.next());   // {value: '孙悟空', done: false}
+    console.log(iterator.next());   // {value: '猪八戒', done: false}
+    console.log(iterator.next());   // {value: '沙僧', done: false}
+    console.log(iterator.next());   // {value: undefined, done: true}
+    console.log(iterator.next());   // {value: undefined, done: true}
 
 
 
