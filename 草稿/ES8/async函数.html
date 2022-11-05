@@ -13,10 +13,10 @@ async function fn() {
     /**
     *    *1、只要return的非Promise类型对象,那么函数执行返回的是个成功的Promise
     *    return undefined;
-    * 
+    *
     *    *2、抛出错误,返回失败的Promise
     *    throw new Error('出错啦!');
-    * 
+    *
     *    *3、return一个Promise类型的对象,函数执行返回的对象跟return的Promise对象的状态相同
     */
     return new Promise(function (resolve , reject) {
