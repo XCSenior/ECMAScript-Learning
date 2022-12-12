@@ -6,7 +6,7 @@ const fs = require('fs');
 function readWeiXue() {
     return new Promise((resolve , reject) => {
         fs.readFile('./resources/为学.md',(err , data)=>{
-            if(err){    
+            if(err){
                 // 如果失败
                 reject(err);
             }else{
@@ -20,7 +20,7 @@ function readWeiXue() {
 function readChaYang() {
     return new Promise((resolve , reject) => {
         fs.readFile('./resources/插秧诗.md',(err , data)=>{
-            if(err){    
+            if(err){
                 // 如果失败
                 reject(err);
             }else{
@@ -34,7 +34,7 @@ function readChaYang() {
 function readGuanShu() {
     return new Promise((resolve , reject) => {
         fs.readFile('./resources/观书有感.md',(err , data)=>{
-            if(err){    
+            if(err){
                 // 如果失败
                 reject(err);
             }else{
