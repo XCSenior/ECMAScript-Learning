@@ -17,7 +17,7 @@
     // 创建Promise对象
     const p = new Promise((resolve,reject) => {
         // resolve('成功的值');
-        reject('失败啦!!!');
+        reject(new Error("失败啦~"));
     });
 
     async function main() {
@@ -25,7 +25,7 @@
             let result = await p;
             console.log(result);
         }catch(e){
-            console.log(e);     //失败啦!!!
+            console.error(e);     //失败啦!!!
         }
     }
     main();
