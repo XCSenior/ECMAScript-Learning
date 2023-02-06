@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1、对象的rest参数和spread扩展运算符</title>
+</head>
+<body>
+<script>
+    // function connect({host, port, username, password}) {
+    //     console.log('host :>> ', host);
+    //     console.log('port :>> ', port);
+    //     console.log('username :>> ', username);
+    //     console.log('password :>> ', password);
+    // }
+
+    // connect({
+    //     host: '127.0.0.1',
+    //     port: 3306,
+    //     username: 'root',
+    //     password: 'root'
+    // })
+
+    function connect({host, port, ...user}) {
+        console.log('host :>> ', host);
+        console.log('port :>> ', port);
+        console.log('user :>> ', user) // user :>> { username: 'root', password: 'root' }
+    }
+
+    connect({
+        host: '127.0.0.1',
+        port: 3306,
+        username: 'root',
+        password: 'root'
+    })
+
+const aObj = { a: 1 };
+const bObj = { b: 2 };
+const cObj = { c: 3 };
+const dObj = { d: 4 };
+
+const mergeObj = {...aObj, ...bObj, ...cObj, ...dObj}
+
+console.log('mergeObj :>> ', mergeObj); // { "a": 1, "b": 2, "c": 3, "d": 4 }
+
+
+</script>
+</body>
+</html>
