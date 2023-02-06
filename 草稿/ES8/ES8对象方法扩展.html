@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ES8对象方法扩展</title>
+</head>
+<body>
+<script>
+    const school = {
+        name: "shangguigu",
+        cities: ["北京", "上海", "深圳"],
+        subjects: ["FrontEnd", "BackEnd", "Database"],
+    };
+
+
+    /* 1、Object.values和Object.entries */
+    // (1)、Object.values返回一个给定对象的所有可枚举属性值的 数组
+    // (2)、Object.entries返回一个给定对象的自身可遍历属性[key, value]的 数组
+
+    console.log("Object.values(school) :>> ", Object.values(school));
+    // 打印：
+    [
+        "shangguigu",
+        ["北京", "上海", "深圳"],
+        ["FrontEnd", "BackEnd", "Database"],
+    ];
+
+    console.log("Object.entries(school) :>> ", Object.entries(school));
+    // 打印：
+    [
+        ["name", "shangguigu"],
+        ["cities", ["北京", "上海", "深圳"]],
+        ["subjects", ["FrontEnd", "BackEnd", "Database"]],
+    ];
+
+
+    /* Object.getOwnPropertyDescriptors */
+    // 返回指定对象所有自身属性的描述对象
+    console.log('Object.getOwnPropertyDescriptors(school) :>> ', Object.getOwnPropertyDescriptors(school));
+    // 打印：
+    const a = {
+        "name": {
+            "value": "shangguigu",
+            "writable": true,
+            "enumerable": true,
+            "configurable": true
+        },
+        "cities": {
+            "value": [ "北京", "上海", "深圳" ],
+            "writable": true,
+            "enumerable": true,
+            "configurable": true
+        },
+        "subjects": {
+            "value": [ "FrontEnd", "BackEnd", "Database" ],
+            "writable": true,
+            "enumerable": true,
+            "configurable": true
+        }
+    }
+
+</script>
+</body>
+</html>
