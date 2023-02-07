@@ -8,7 +8,23 @@
 </head>
 <body>
 <script>
-    
+    /*
+     * 断言：根据目标的前边或后边内容，进行唯一性的正则匹配识别，只获取1个结果
+     */
+
+    /* 正向断言举例 */
+    let str = 'JS5211314你知道么555啦啦啦'; // 需求：提取后面的数字（555）
+
+    const regExp = /\d+(?=啦)/; // 正向断言：根据想要的部分后边的内容判断，获取满足正则条件的字符串片段
+
+    const result = regExp.exec(str);
+    console.log('result :>> ', result);
+
+    /* 反向断言：根据想要的部分前边的内容去判断，获取满足正则条件的字符串片段 */
+    const regExp2 = /(?<=么)\d+/;
+    const result2 = regExp2.exec(str);
+    console.log('result2 :>> ', result2);
+
 </script>
 </body>
 </html>
