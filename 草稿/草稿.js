@@ -1,7 +1,23 @@
-function fn (a, b, ...arr) {
-    // body
-    console.log('a, b, arr :>> ', a, b, arr);
+// for in 循环遍历对象属性
 
+const obj = {
+    name:'1',
+    age:15,
+    fn:function(){
+        console.log();
+    }
 }
 
-fn(1, 2, 3, 4, 5, 6)
+
+for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+        const element = obj[key];
+        console.log(`${key}:${element}`);
+    }
+}
+
+function fn (...args) {
+    console.log('typeof args :>> ', typeof args);
+    console.log('args instanceof Array :>> ', args instanceof Array);
+}
+fn();
